@@ -20,31 +20,28 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/edit_name"
+        <TextView
+            android:id="@+id/text_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/edit_name"
-            android:inputType="textPersonName"
-            tools:ignore="Autofill" />
+            android:hint="@string/text_name"
+            android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/edit_phone"
+        <TextView
+            android:id="@+id/text_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/edit_phone"
-            android:inputType="phone"
-            tools:ignore="Autofill" />
+            android:hint="@string/text_phone"
+            android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/edit_email"
+        <TextView
+            android:id="@+id/text_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/edit_email"
-            android:inputType="textWebEmailAddress"
-            tools:ignore="Autofill" />
+            android:hint="@string/text_email"
+            android:textSize="30sp" />
     </LinearLayout>
 </LinearLayout>
