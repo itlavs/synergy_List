@@ -1,10 +1,13 @@
 package club.plus1.list;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,5 +37,25 @@ public class MainActivity extends AppCompatActivity {
         // imagePhoto - верблюжья нотация
         // image_photo - змеиная нотация
         // image-photo - кебаб нотация
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null && data.getExtras() != null){
+            if (requestCode == EditActivity.ADD){
+                Person person = new Person();
+                person.setName(data.getStringExtra(EditActivity.NAME));
+                person.setPhone(data.getStringExtra(EditActivity.PHONE));
+                person.setEmail(data.getStringExtra(EditActivity.EMAIL));
+                list.add(person);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
+
+    public void onAdd(View view){
+        Intent intent = new Intent(this, EditActivity.class);
+        startActivityForResult(intent, EditActivity.ADD);
     }
 }

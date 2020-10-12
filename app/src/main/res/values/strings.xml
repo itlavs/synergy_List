@@ -3,4 +3,6 @@
     <string name="text_name">Имя</string>
     <string name="text_phone">Телефон</string>
     <string name="text_email">E-mail</string>
+    <string name="button_add">Добавить</string>
+    <string name="button_save">Сохранить</string>
 </resources>
