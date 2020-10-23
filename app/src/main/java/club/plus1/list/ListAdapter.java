@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
@@ -44,9 +46,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 intent.putExtra(EditActivity.NAME, person.getName());
                 intent.putExtra(EditActivity.PHONE, person.getPhone());
                 intent.putExtra(EditActivity.EMAIL, person.getEmail());
+                if (person.getPhoto() != null){
+                    intent.putExtra(EditActivity.PHOTO, person.getPhoto().toString());
+                }
                 ((MainActivity)context).startActivityForResult(intent, EditActivity.EDIT);
             }
         });
+        if (person.getPhoto() != null) {
+            Glide.with(context).load(person.getPhoto()).into(holder.image_photo);
+        }
     }
 
     @Override

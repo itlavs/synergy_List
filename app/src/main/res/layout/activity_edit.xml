@@ -3,15 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="onSelect"
     android:orientation="vertical"
     tools:context=".EditActivity">
 
     <ImageView
         android:id="@+id/edit_photo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars"
-        tools:ignore="ContentDescription" />
+        android:layout_height="200dp"
+        android:onClick="onSelect"
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <EditText
         android:id="@+id/edit_name"
