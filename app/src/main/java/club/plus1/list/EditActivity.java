@@ -48,7 +48,8 @@ public class EditActivity extends AppCompatActivity {
             edit_phone.setText(intent.getStringExtra(PHONE));
             edit_email.setText(intent.getStringExtra(EMAIL));
             if (intent.getStringExtra(PHOTO) != null){
-                Glide.with(this).load(Uri.parse(intent.getStringExtra(PHOTO))).into(edit_photo);
+                photo = Uri.parse(intent.getStringExtra(PHOTO));
+                Glide.with(this).load(photo).into(edit_photo);
             }
         }
     }
@@ -69,7 +70,9 @@ public class EditActivity extends AppCompatActivity {
         result.putExtra(NAME, edit_name.getText().toString());
         result.putExtra(PHONE, edit_phone.getText().toString());
         result.putExtra(EMAIL, edit_email.getText().toString());
-        result.putExtra(PHOTO, photo.toString());
+        if (photo != null) {
+            result.putExtra(PHOTO, photo.toString());
+        }
         setResult(RESULT_OK, result);
         finish();
     }

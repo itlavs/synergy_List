@@ -2,11 +2,23 @@ package club.plus1.list;
 
 import android.net.Uri;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "person")
 public class Person {
-    private Uri photo;
-    private String name;
+    @NonNull
+    @PrimaryKey
+    private String name = "";
+    @ColumnInfo(name = "phone")
     private String phone;
+    @ColumnInfo(name = "email")
     private String email;
+    @Ignore
+    private Uri photo;
 
     public Uri getPhoto() {
         return photo;
